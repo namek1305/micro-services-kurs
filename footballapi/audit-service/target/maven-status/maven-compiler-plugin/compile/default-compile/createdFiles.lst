@@ -1,0 +1,4 @@
+com\example\audit\listeners\AnalyticsEventListener.class
+com\example\audit\listeners\PlayerEventListener.class
+com\example\audit\FootballAuditServiceApplication.class
+com\example\audit\config\RabbitMQConfig.class
