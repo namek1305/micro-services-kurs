@@ -10,7 +10,9 @@
         #status { text-align: center; margin-bottom: 20px; font-weight: bold; color: #dc3545; }
         .notification { padding: 15px; margin-bottom: 10px; border-left: 5px solid; border-radius: 4px; animation: slideIn 0.5s ease-out; }
         .verdict-GOOD { background-color: #d4edda; border-color: #28a745; color: #155724; }
-        .verdict-BAD { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .verdict-EXCELLENT { background-color: #cce5ff; border-color: #007bff; color: #0056b3; }
+        .verdict-POOR { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .verdict-AVERAGE { background-color: #fff3cd; border-color: #ffc107; color: #856404; }
         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
     </style>
 </head>
@@ -39,7 +41,7 @@
             const data = JSON.parse(event.data);
             console.log("Получено событие:", data);
 
-            if (data.type === 'RATING_UPDATE') {
+            if (data.type === 'FOOTBALL_RATING') {
                 showNotification(data);
             }
         };
@@ -55,7 +57,7 @@
         const div = document.createElement('div');
         div.className = `notification verdict-${data.verdict}`;
         div.innerHTML = `
-            <strong>Пользователь ID: ${data.userId}</strong><br>
+            <strong>Пользователь ID: ${data.playerId}</strong><br>
             Рейтинг рассчитан: <b>${data.score}</b><br>
             Вердикт: ${data.verdict}
         `;
