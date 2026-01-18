@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 
 public record FootballRatingEvent(
-        Long playerId,
-        Long matchId,
-        Integer score,
+        long playerId,
+        long matchId,
+        int score,
         String verdict
 ) implements Serializable {}

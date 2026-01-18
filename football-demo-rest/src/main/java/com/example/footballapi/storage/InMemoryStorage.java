@@ -25,7 +25,6 @@ public class InMemoryStorage {
 
     @PostConstruct
     public void init() {
-        // Создаем несколько игроков
         PlayerResponse player1 = new PlayerResponse(
                 playerSequence.incrementAndGet(),
                 "Иван",
@@ -45,7 +44,6 @@ public class InMemoryStorage {
         players.put(player1.getId(), player1);
         players.put(player2.getId(), player2);
 
-        // Создаем несколько команд
         TeamResponse team1 = new TeamResponse(
                 teamSequence.incrementAndGet(),
                 "Россия",

@@ -49,7 +49,7 @@ public class PlayerEventListener {
 
         } catch (Exception e) {
             log.error("Ошибка обработки PlayerCreatedEvent {}", event, e);
-            channel.basicNack(tag, false, false); // в DLQ
+            channel.basicNack(tag, false, false);
         }
     }
     @RabbitListener(bindings = @QueueBinding(

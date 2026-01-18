@@ -17,7 +17,6 @@ public class NotificationHandler extends TextWebSocketHandler {
 
     private static final Logger log = LoggerFactory.getLogger(NotificationHandler.class);
 
-    // Потокобезопасный список сессий
     private final List<WebSocketSession> sessions = new CopyOnWriteArrayList<>();
 
     @Override
@@ -32,10 +31,6 @@ public class NotificationHandler extends TextWebSocketHandler {
         log.info("WebSocket connection closed: {}", session.getId());
     }
 
-    /**
-     * Метод для отправки сообщения всем активным клиентам.
-     * Вызывается из RabbitMQ Listener.
-     */
     public void broadcast(String message) {
         for (WebSocketSession session : sessions) {
             if (session.isOpen()) {

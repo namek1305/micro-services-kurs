@@ -44,13 +44,13 @@ public class TeamService {
     }
 
     public TeamResponse update(Long id, TeamRequest request) {
-        findById(id); // Проверяем, что команда существует
+        findById(id);
         TeamResponse updatedTeam = new TeamResponse(
                 id,
                 request.name(),
                 request.stadium(),
                 request.founded(),
-                new ArrayList<>() // Игроки не обновляются через этот метод
+                new ArrayList<>()
         );
         storage.teams.put(id, updatedTeam);
         return updatedTeam;
