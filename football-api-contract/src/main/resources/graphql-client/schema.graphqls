@@ -1,0 +1,47 @@
+type Player {
+  id: ID!
+  firstName: String
+  lastName: String
+  dateOfBirth: String
+  position: String
+}
+
+type Team {
+  id: ID!
+  name: String
+  stadium: String
+  founded: String
+  players: [Player]
+}
+
+type Query {
+  players: [Player]
+  playerById(id: ID!): Player
+
+  teams: [Team]
+  teamById(id: ID!): Team
+}
+
+input PlayerInput {
+  firstName: String!
+  lastName: String!
+  dateOfBirth: String!
+  position: String!
+}
+
+input TeamInput {
+  name: String!
+  stadium: String!
+  founded: String!
+  playerIds: [ID!]
+}
+
+type Mutation {
+  createPlayer(input: PlayerInput!): Player
+  updatePlayer(id: ID!, input: PlayerInput!): Player
+  deletePlayer(id: ID!): ID
+
+  createTeam(input: TeamInput!): Team
+  updateTeam(id: ID!, input: TeamInput!): Team
+  deleteTeam(id: ID!): ID
+}
